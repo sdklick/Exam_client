@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./exampage.css";
 import { useNavigate } from "react-router-dom";
+import indipng from "../src/assets/indi.png";
 
 const Exampage = () => {
   const [registationdata, setregisdata] = useState({});
@@ -193,12 +194,12 @@ const Exampage = () => {
               </div>
               <button className="btn mt-3" type="submit">
                 <img
-                  src="src\assets\indi.png"
+                  src={indipng}
                   className="mt-3 rounded mx-auto d-block"
                   height="100px"
                   alt="Lock"
                 />
-                Submit
+                
               </button>
             </form>
           </div>
