@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Nightday from "./Nightday";
 import Signupmodal from "./Signupmodal";
+import imageUrl from "../src/assets/admin.png"
+
 
 const Nav = () => {
   const [logsuccess, setlogsuccess] = useState(false);
   const signingetval = (value) => {
     setlogsuccess(value);
   };
+
+  console.log(imageUrl);
 
   return (
     <>
@@ -63,7 +67,7 @@ const Nav = () => {
             </ul>
           </div>
           <NavLink to="/adminpage" className="nav-link">
-            <img src="src\assets\admin.png" height="45" alt="A" />
+            <img src={imageUrl} height="45" alt="A" />
           </NavLink>
           
           <Nightday />
