@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Nav from "./Nav";
 import axios from "axios";
 import Footer from "./Footer";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import resnotjpg from "../src/assets/resnot.jpg";
 import resultjpg from "../src/assets/result.jpg";
@@ -32,11 +31,7 @@ const Examresult = () => {
     setisfound(response.data.found);
     setredata(response.data);
 
-    if (response.data.found == true) {
-      toast("✔️ Your Result");
-    } else {
-      toast("❌ No Data Found");
-    }
+   
   };
 
   return (
@@ -151,7 +146,7 @@ const Examresult = () => {
           </div>
         </div>
       ) : null}
-      <ToastContainer />
+      
     </>
   );
 };
