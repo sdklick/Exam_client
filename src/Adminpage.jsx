@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Admin_examregis_result from "./Admin_examregis_result";
+import examlistjpg from "../src/assets/examlist.jpg";
 
 const Adminpage = () => {
   const [examdata, setexamdata] = useState({});
@@ -30,7 +31,9 @@ const Adminpage = () => {
   }, []);
   useEffect(() => {
     const fetchdata = async () => {
-      const response = await axios.get("https://exam-server-4pe7.onrender.com/api/examlist");
+      const response = await axios.get(
+        "https://exam-server-4pe7.onrender.com/api/examlist"
+      );
       setexamdata(response);
       let fidata = response.data;
       setmapdata(fidata);
@@ -120,12 +123,11 @@ const Adminpage = () => {
 
       {examdata.data == false || isadminsignin == false ? (
         <img
-          src="src\assets\examlist.jpg"
+          src={examlistjpg}
           className="mt-3 rounded mx-auto d-block"
           height="400px"
           alt="Lock"
         />
-        
       ) : (
         <div className="card text-center">
           <div className="card-header">
