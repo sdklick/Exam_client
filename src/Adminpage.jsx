@@ -125,7 +125,7 @@ const Adminpage = () => {
         <img
           src={examlistjpg}
           className="mt-3 rounded mx-auto d-block"
-          height="400px"
+          height="290px"
           alt="Lock"
         />
       ) : (
