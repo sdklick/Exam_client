@@ -17,14 +17,17 @@ const Contact = () => {
   const contactdatasubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("https://exam-server-4pe7.onrender.com/api/contact", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(contact),
-    });
+    const response = await fetch(
+      "https://exam-server-4pe7.onrender.com/api/contact",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(contact),
+      }
+    );
     const firesponse = await response.json();
     console.log(response);
     if (firesponse.post == true) {
@@ -36,26 +39,29 @@ const Contact = () => {
     <>
       <Nav />
 
-      <div class="card text-bg-dark text-center">
-        {/* <img
+      <div class="card text-center mt-5" style={{ border: "none" }}>
+        <div class="card-header" style={{ border: "none" }}>
+          Contact Us
+        </div>
+        <div class="card-body" style={{ border: "none" }}>
+          {/* <img
           src="https://source.unsplash.com/1600x700/?macbook"
           class="card-img "
           alt="..."
         /> */}
-        <div class="card-img-overlay">
-          <div class="card position-fixed top-50 start-50 translate-middle">
+          <div class="card " style={{ border: "none" }}>
             <div class="row g-0">
               <div class="col-md-4">
                 <img
                   src="https://source.unsplash.com/550x800/?iphone"
-                  class="img-fluid rounded-start"
+                  class="img-fluid rounded"
                   alt="..."
+                  style={{ height: "450px" }}
                 />
               </div>
-              <div class="col-md-8">
-                <div class="card-body ">
+              <div class="col-md-8 mt-2">
+                <div class="card-body">
                   <form onSubmit={contactdatasubmit}>
-                    <h4 class="card-title mb-4">Contact Us</h4>
                     <div
                       class="row border rounded-pill"
                       style={{ backgroundColor: "orange" }}
