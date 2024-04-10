@@ -99,17 +99,32 @@ const Setquestion = () => {
     e.preventDefault();
 
     const response = await axios.post(
-      "https://exam-server-4pe7.onrender.com/api/signin",
+      "http://localhost:2000/api/signin",
       signindata
     );
 
-    setpname(response.data.username);
-    setlogin(response.data.found);
+    if (response.data.found) {
+      localStorage.setItem("examinername", response.data.username);
+      localStorage.setItem("examinertoken", response.data.auth);
+      const examinername = localStorage.getItem("examinername");
+      setlogin(true);
+      setnavhide(true);
+      setpname(examinername);
+    }
+  };
+
+  const Logout = () => {
+    let surelogout = confirm("Are You Sure Logout");
+    if (surelogout) {
+      localStorage.clear();
+      window.location.reload(false);
+      setlogin(false);
+    }
   };
 
   return (
     <>
-      <Nav />
+      {navhide ? null : <Nav />}
       {/* Login section */}
       <div className="card text-center">
         {login == false ? (
@@ -117,7 +132,7 @@ const Setquestion = () => {
         ) : (
           <div className="card-header">Hello, {pname}</div>
         )}
-        {timeloop.length == 0 ? (
+        {login == false ? (
           <div className="card-body">
             <form onSubmit={datasubmitsignin}>
               <div className="row">
@@ -191,9 +206,9 @@ const Setquestion = () => {
       {login == true ? (
         <div className="card text-center" style={{ backgroundColor: "wheat" }}>
           <div className="card-body">
-            {timeloop.map((val) => {
+            {timeloop.map((val, index) => {
               return (
-                <>
+                <div key={index}>
                   <div className="mb-3">
                     <label
                       htmlFor="formGroupExampleInput"
@@ -258,7 +273,7 @@ const Setquestion = () => {
                       />
                     </div>
                   </div>
-                </>
+                </div>
               );
             })}
             {timeloop.length != 0 ? (
@@ -294,7 +309,7 @@ const Setquestion = () => {
                   </button>
                   <button
                     className="btn btn-danger mt-5 col-10"
-                    onClick={() => window.location.reload(false)}
+                    onClick={Logout}
                   >
                     Logout
                   </button>
