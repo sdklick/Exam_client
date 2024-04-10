@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Nav from "./Nav";
 import lockpng from "../src/assets/lock.png"
+import { useNavigate } from "react-router-dom";
 
 const Setquestion = () => {
   const [signindata, setsignindata] = useState({});
@@ -12,6 +13,19 @@ const Setquestion = () => {
   const [timeloop, settimeloop] = useState([]);
   const [login, setlogin] = useState(false);
   const [pname, setpname] = useState("");
+  const [navhide, setnavhide] = useState(false);
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    const auth = localStorage.getItem("examinertoken");
+    const examinername = localStorage.getItem("examinername");
+    if (auth) {
+      navigate("/setquestion");
+      setlogin(true);
+      setnavhide(true);
+      setpname(examinername);
+    }
+  }, []);
 
   const Questionsendserver = async (qdata) => {
     const response = await fetch(
