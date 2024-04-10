@@ -105,12 +105,6 @@ const Setquestion = () => {
 
     setpname(response.data.username);
     setlogin(response.data.found);
-
-    if (response.data.found == true) {
-      toast("✔️ Login Success");
-    } else {
-      toast("❌ Wrong Credentials");
-    }
   };
 
   return (
