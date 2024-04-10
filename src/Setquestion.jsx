@@ -1,9 +1,9 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Nav from "./Nav";
-import lockpng from "../src/assets/lock.png"
+import lockpng from "../src/assets/lock.png";
 import { useNavigate } from "react-router-dom";
 
 const Setquestion = () => {
@@ -98,13 +98,9 @@ const Setquestion = () => {
   const datasubmitsignin = async (e) => {
     e.preventDefault();
 
-    const response = await axios.get(
+    const response = await axios.post(
       "https://exam-server-4pe7.onrender.com/api/signin",
-      {
-        params: {
-          ID: signindata,
-        },
-      }
+      signindata
     );
 
     setpname(response.data.username);
