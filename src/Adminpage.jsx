@@ -234,9 +234,9 @@ const Adminpage = () => {
                             </div>
                           </div>
                         </div>
-                        <button type="button" className="btn btn-danger mt-3">
+                        {/* <button type="button" className="btn btn-danger mt-3">
                           Delete
-                        </button>
+                        </button> */}
                       </div>
 
                       <div className="card-footer">
