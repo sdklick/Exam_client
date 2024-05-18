@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Nav from "./Nav";
 import lockpng from "../src/assets/lock.png";
 import { useNavigate } from "react-router-dom";
+import ExaminerDashboard from "./ExaminerDashboard";
 
 const Setquestion = () => {
   const [signindata, setsignindata] = useState({});
@@ -167,6 +168,7 @@ const Setquestion = () => {
       {/* Question Section */}
 
       {login == true && timeloop.length == 0 ? (
+        <>
         <div className="card text-center">
           <div className="card-body">
             <div className="row">
@@ -193,6 +195,8 @@ const Setquestion = () => {
             </div>
           </div>
         </div>
+        <ExaminerDashboard />
+        </>
       ) : login == false ? (
         <img
           src={lockpng}
