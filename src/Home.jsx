@@ -99,7 +99,7 @@ const Home = () => {
                   </div>
                 </div>
               ) : (
-                <Skeleton count={1000} />
+                null
               )}
               <div className="carousel-item">
                 <img
