@@ -3,6 +3,7 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import { NavLink } from "react-router-dom";
 import { AboutsubApi,AboutTechApi } from "./dataapi";
+import sumantafull from "../src/assets/sumantafull.png";
 
 const About = () => {
   return (
@@ -15,7 +16,7 @@ const About = () => {
             <div className="row g-0">
               <div className="col-md-4">
                 <img
-                  src="https://source.unsplash.com/4000x6000/?exam"
+                  src={sumantafull}
                   style={{ height: "497px" }}
                   className="img-fluid rounded-start"
                   alt="..."
