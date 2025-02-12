@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import { sendContactData } from "./redux/slices/contactSlice.js";
+import cont from "../src/assets/cont.png";
 
 const Contact = () => {
   const [contact, setcontact] = useState({});
@@ -42,7 +43,7 @@ const Contact = () => {
             <div className="row g-0">
               <div className="col-md-4">
                 <img
-                  src="https://source.unsplash.com/550x800/?iphone"
+                  src={cont}
                   className="img-fluid rounded"
                   alt="..."
                   style={{ height: "450px" }}
